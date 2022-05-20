@@ -1,17 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+// import { Auth0Provider } from "@auth0/auth0-react";
+import { BrowserRouter as Router } from 'react-router-dom';
+import Auth0ProviderWithHistory from './auth/auth0-provider-with-history';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+ReactDOM.render(
+  <Router>
+    <Auth0ProviderWithHistory>
+      <App />
+    </Auth0ProviderWithHistory>
+  </Router>,
+  document.getElementById('root'),
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+// ReactDOM.render(
+//   <Auth0ProviderWithHistory
+//     domain="dev-srivwqrf.us.auth0.com"
+//     clientId="tc4jJuAkNY2WzDkZuw87gY46j0He3azq"
+//     redirectUri={window.location.origin}
+//   >
+//     <App />
+//   </Auth0ProviderWithHistory>,
+//   document.getElementById("root")
+// );
